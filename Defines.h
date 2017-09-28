@@ -10,7 +10,7 @@
 //                GedWise project files.
 //
 ////////////////////////////////////////////////////////////////////////////////////
-// Copyright © 2001 - 2005 Battery Park Software Corporation.
+// Copyright Â© 2001 - 2005 Battery Park Software Corporation.
 // All rights reserved.
 // Starting Size: 100,674 bytes
 // Ending Size:   112,677 (version 6.0 - Released Nov 15, 2004)
@@ -21,17 +21,17 @@
 // Changes Since Release on Nov 15, 2004
 
 //	12/22/2004 Improved Individual List screen to allow "." so that when user enters
-//    		  the "x" character, it will be more easily recognized.
+//    		      the "x" character, it will be more easily recognized.
 //	12/22/2004 Fixed RelCalcNum2 to stop reinit when starting up GedWise.
 // 03/28/2005 Reduce Minimum OS Version to 3.1.
 // 05/18/2005 Fixed the NavKeyHit function so Nav buttons will work with Treo Devices.
 // 06/06/2005 Fixed cPalmPath constant to remove last "/" so that the directory can
-//				  be found properly by  VFSFileOpen function. (size 112,680K)
+//				        be found properly by  VFSFileOpen function. (size 112,680K)
 // 12/12/2005 Fixed DetailViewHandleVirtual to work with TX handhelds.
 // 12/20/2005 Added SetNavFocusRing to handled focus ring problems.
 // 12/20/2005 Added test for sysFtrNumFiveWayNavVersion feature in startup function.
 // 12/20/2005 Fixed keyDownEvent events in DBListHandleEvent, NoteViewHandleEvent
-//				  & AliaListHandleEvent functions to handle NavKeyHit. 
+//				        & AliaListHandleEvent functions to handle NavKeyHit. 
 
 ////////////////////////////////////////////////////////
 // VERSION SETTINGS 												//
