@@ -11,7 +11,7 @@
 //                stops the application.
 //
 ////////////////////////////////////////////////////////////////////////////////////
-// Copyright © 2001 - 2005 Battery Park Software Corporation.  
+// Copyright Â© 2001 - 2005 Battery Park Software Corporation.  
 // All rights reserved.
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -90,9 +90,9 @@ DBRecordType	RepCRec;
 DBRecordType	NoteRec;
 
 UInt16			HldIndiRecN				= NO_REC; 		// record num in IndiDB
-UInt16    		ListViewSelectRecN	= NO_REC; 		// set when leave ListView
-static UInt32  PrimaryBirtRecN		= NO_REC_LONG; // record number in EvenDB
-static UInt32  PrimaryDeatRecN   	= NO_REC_LONG; // record number in EvenDB 
+UInt16    		ListViewSelectRecN	    = NO_REC; 		// set when leave ListView
+static UInt32   PrimaryBirtRecN		    = NO_REC_LONG; // record number in EvenDB
+static UInt32   PrimaryDeatRecN   	    = NO_REC_LONG; // record number in EvenDB 
 extern UInt16	RelCalcRecN1;								// record number in IndiDB
 static UInt32	FirstChilRecN			= NO_REC_LONG;	// record number in ChilDB
 static UInt32	LastChilRecN			= NO_REC_LONG;	// record number in ChilDB
@@ -108,32 +108,32 @@ static Char			NoteXRef[XREF_LEN+1];
 static Char*		SouCList;						// used in SouCViewHandleEvent
 static MemHandle	SouCListH 			= NULL;
 
-static Boolean AlreadyHaveFamily		= false;
-Boolean 			GetFirstName 			= false; // used in ListViewHandleEvent
-Boolean 			SupportsColor;						// true if device supports color
-Boolean			UseFullNoteScrn		= false; // true to use entire screen for note
+static Boolean  AlreadyHaveFamily		= false;
+Boolean 	    GetFirstName 			= false; // used in ListViewHandleEvent
+Boolean 		SupportsColor;						// true if device supports color
+Boolean			UseFullNoteScrn		    = false; // true to use entire screen for note
 Boolean			RelCalcEntry			= false; // 
 Boolean			RelCalcGetRec1;
 
 static UInt16	DetailViewLastLine; 	// Line after last one containing data
 static UInt16	DetailViewFirstPlainLine;
 static UInt16	TopDetailViewLine;
-static UInt16	PriorTopDetailViewLine 		= 0; // Used for misc Event Handlers
-static UInt16	PriorSouCTopDetailViewLine = 0; // Used for SouCViewHandleEvent
-static UInt16  PriorSourTopDetailViewLine = 0; // Used for SourViewHandleEvent
-static UInt16  PriorRepoTopDetailViewLine = 0; // Used for RepoViewHandleEvent
-static UInt16  PriorRepCTopDetailViewLine = 0; // Used for RepoViewHandleEvent
-static UInt16  SouCViewPriorSouCNumber 	= 1; // this must be set to a 1 here!
+static UInt16	PriorTopDetailViewLine 	    = 0; // Used for misc Event Handlers
+static UInt16	PriorSouCTopDetailViewLine  = 0; // Used for SouCViewHandleEvent
+static UInt16   PriorSourTopDetailViewLine  = 0; // Used for SourViewHandleEvent
+static UInt16   PriorRepoTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
+static UInt16   PriorRepCTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
+static UInt16   SouCViewPriorSouCNumber 	= 1; // this must be set to a 1 here!
 static UInt16	PriorSouCFormID;  				  // Used in SouCViewHandleEvent
 static UInt16	PriorNoteFormID;  				  // Return to prior form aft Note View
 UInt16			PriorFormID;
-UInt16			IndiDBNumRecs 					= 0; // no. of individuals in open db
+UInt16			IndiDBNumRecs 		        = 0; // no. of individuals in open db
 UInt16			ExportMemoIndex;
 
 Boolean			AboutMode 	= false;
 static UInt16	IndiListTblRows;
 static Char 	DataStr[32];			// used in various locations
-Char				DescStr[5];				// used for event description header in DV
+Char			DescStr[5];				// used for event description header in DV
 UInt16			EvenTypeN;				// used for Note description header in DV
 UInt16			TotDatabases;  		// total databases in memory.
 DmOpenRef 		MemoDbRef	= NULL;	// ref to system's memo database
@@ -154,20 +154,20 @@ static Boolean FamiEventsVisible	= false; // 1=show Family Events, 0=show Childr
 static Boolean ShowFamilyButtons = false; 
 
 Boolean			UpdateFrm 			= true;
-Boolean			Pre35Rom				= false; // indicates pre-OS 3.5 ROM
-Boolean			Pre60Rom				= false; // indicates pre-OS 6.0 ROM
-Boolean			ExpCardCapable 	= false; // true if HH is Expansion Card Capable
+Boolean			Pre35Rom			= false; // indicates pre-OS 3.5 ROM
+Boolean			Pre60Rom			= false; // indicates pre-OS 6.0 ROM
+Boolean			ExpCardCapable 	    = false; // true if HH is Expansion Card Capable
 Boolean			RedrawBaseFrm		= false;
 
 // The following global variable are saved to a preferences state file.
-UInt32       	InstallDate 			= 0; // days from 1/1/1904 since installation.
-Char				DbName[USER_DB_NAME_SZ+1] = "\0"; // name of open db
-UInt16			FileLoc					= 0;		// volume or card db is on
-UInt16			RelCalcRecN2			= NO_REC;// rec number of indiv 2 in Rel. Calc. Wnd
+UInt32       	InstallDate 			    = 0; // days from 1/1/1904 since installation.
+Char			DbName[USER_DB_NAME_SZ+1]   = "\0"; // name of open db
+UInt16			FileLoc					    = 0;		// volume or card db is on
+UInt16			RelCalcRecN2			    = NO_REC;// rec number of indiv 2 in Rel. Calc. Wnd
 UInt16			Jump[JUMP_MAX]; 				// rec numbers of last 10 indiv viewed
 RGBColorType	Color1;							// init in StartApplication
 RGBColorType	Color2;							// init in StartApplication
-FontID      	PrefFnts[TotPrefFnts]	= {stdFont, stdFont, stdFont, largeBoldFont};
+FontID      	PrefFnts[TotPrefFnts]	    = {stdFont, stdFont, stdFont, largeBoldFont};
 
 #ifdef REGISTERED
 Boolean			Prefs[TotPrefFlds] = {false, false, false, true, false, false, false,
@@ -185,19 +185,19 @@ extern SrchATp	SrchArrayData;
 //	Global Constants
 ////////////////////////////////////////////////////////////////////////////////////
 const Char 		cFieldSepStr[]		= FLD_SEP_STR;
-const	Char 		cDbNameStr[]		= DBNAME_STR; // format of full db name
-const	Char 		cFileNameStr[]		= FNAME_STR;  // format of full file name
+const Char 		cDbNameStr[]		= DBNAME_STR; // format of full db name
+const Char 		cFileNameStr[]		= FNAME_STR;  // format of full file name
 const Char		cPalmPath[] 		= PALM_PATH_STR;
-const	Char 		cNoteSepStr[] 		= NOTE_SEP_STR;
-const	Char 		cErrorNoRec[18]  	= NO_REC_STR;	// size = 18
-		Char 		cUnknownStr[]    	= UNK_STR;
+const Char 		cNoteSepStr[] 		= NOTE_SEP_STR;
+const Char 		cErrorNoRec[18]  	= NO_REC_STR;	// size = 18
+	  Char 		cUnknownStr[]    	= UNK_STR;
 
 ////////////////////////////////////////////////////////////////////////////////////
 //	Event Description Array
 ////////////////////////////////////////////////////////////////////////////////////
 Char*	EvenDesc[TOT_EVEN_L][2] = // DO NOT CHANGE FIELD ORDER (MUST MATCH GEDWISE PC)
  	  {
- 	   {cUnknownStr, "Unk"},
+ 	    {cUnknownStr, "Unk"},
 		{"Birth", "Bir"},
 		{"Baptism","Bap"},
 		{"Christening", "Chr"},
@@ -209,21 +209,21 @@ Char*	EvenDesc[TOT_EVEN_L][2] = // DO NOT CHANGE FIELD ORDER (MUST MATCH GEDWISE
 		{"Banns", "Ban"},
 				
 		{"Marr. Contract", "MaC"},
-      {"Marr. License", "MaL"},
-      {"Marr. Settlement", "MaS"},
-      {"Annulment", "Anl"},
-      {"Census", "Cen"},
-      {"Divorce", "Div"},
-      {"Div. Filing", "DiF"},
-      {"Engagement", "Eng"},
-      {"Caste", "Cst"},
-      {"Description", "Dsc"},
+        {"Marr. License", "MaL"},
+        {"Marr. Settlement", "MaS"},
+        {"Annulment", "Anl"},
+        {"Census", "Cen"},
+        {"Divorce", "Div"},
+        {"Div. Filing", "DiF"},
+        {"Engagement", "Eng"},
+        {"Caste", "Cst"},
+        {"Description", "Dsc"},
 
-      {"Education", "Edu"},
-      {"ID Number", "IdN"},
-      {"Nationality", "Nat"},
-      {"Child Count", "CCt"},
-      {"Marr. Count", "MCt"},
+        {"Education", "Edu"},
+        {"ID Number", "IdN"},
+        {"Nationality", "Nat"},
+        {"Child Count", "CCt"},
+        {"Marr. Count", "MCt"},
 		{"Occupation", "Occ"},
 		{"Possessions", "Pos"},
 		{"Religion", "Rlg"},
@@ -277,7 +277,7 @@ Char*	EvenDesc[TOT_EVEN_L][2] = // DO NOT CHANGE FIELD ORDER (MUST MATCH GEDWISE
 // NOTE:          We need to create a branch island to PilotMain in order to 
 //                successfully link this application for the device.
 //
-// REVISIONS:		None.
+// REVISIONS:     None.
 //
 ////////////////////////////////////////////////////////////////////////////////////
 UInt32 PilotMain (UInt16 cmd, MemPtr cmdPBP, UInt16 launchFlags)
@@ -295,7 +295,7 @@ UInt32 PilotMain (UInt16 cmd, MemPtr cmdPBP, UInt16 launchFlags)
 //
 // RETURNED:      Nothing.
 //
-// REVISIONS:		None.
+// REVISIONS:	  None.
 ////////////////////////////////////////////////////////////////////////////////////
 static void DetailViewInitPriorLines (void)
 {
@@ -321,7 +321,7 @@ static void DetailViewInitPriorLines (void)
 static UInt16 DetailViewNoteSpace (Char* aNote)
 {
    UInt16         length;
-   RectangleType 	rect;
+   RectangleType  rect;
    UInt16         offset = 0;
    UInt16         newOffset = 0;
    UInt16         counter = 0;
