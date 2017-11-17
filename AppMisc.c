@@ -1,13 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////////
 //
-// PROJECT:       GedWise 6.0 & 6.1
+// PROJECT:  	GedWise 6.0 & 6.1
 //
-// FILE:          AppMisc.c
+// FILE:	AppMisc.c
 //
-// AUTHOR:        Daniel T. Rencricca: October 15, 2004
+// AUTHOR:  	Daniel T. Rencricca: October 15, 2004
 //
-// DESCRIPTION:   This is the application's module for various
-//                utility functions
+// DESCRIPTION:	This is the application's module for various
+//              utility functions
 //
 ////////////////////////////////////////////////////////////////////////////////////
 // Copyright © 2001 - 2005 Battery Park Software Corporation.
@@ -26,36 +26,36 @@
 ////////////////////////////////////////////////////////////////////////////////////
 // Externally defined variables
 ////////////////////////////////////////////////////////////////////////////////////
-extern UInt32				InstallDate;
-extern UInt16				CurrentIndiRecN;
-extern UInt16  				CurrentSpouRecN; 
-extern MemHandle 			FamiRecH;
-extern MemHandle 			IndiRecH;
-extern DBRecordType  		IndiRec;
-extern DBRecordType			FamiRec;
-extern UInt16				TotDatabases;
-extern UInt16				FileLoc;
-extern UInt16				ListViewSelectRecN;
-extern Boolean				SupportsColor;
-extern Boolean				Pre35Rom;
-extern Boolean				Pre60Rom;
-extern Char 				cUnknownStr[];
-extern Char					DbName[];
-extern Boolean				RelCalcEntry;
-extern UInt16				RelCalcRecN2;// rec num of indiv 2 in Rel Calc.
-extern UInt16				RelCalcGen;  // num of generations to search in Rel Calc.
-extern Boolean				RelCalcGetRec1;
-extern UInt16				PriorFormID;
-extern UInt16				HldIndiRecN;
-extern UInt16				Jump[];
-extern UInt16				IndiDBNumRecs;
-extern RGBColorType			Color1;
-extern RGBColorType			Color2;
-extern Boolean				UpdateFrm;
-extern Boolean				Prefs[]; 	// user preferences
-extern FontID				PrefFnts[]; // user font preferences
-extern Boolean				DynInDevice;
-extern Boolean				AboutMode;
+extern UInt32		InstallDate;
+extern UInt16		CurrentIndiRecN;
+extern UInt16  		CurrentSpouRecN; 
+extern MemHandle 	FamiRecH;
+extern MemHandle 	IndiRecH;
+extern DBRecordType  	IndiRec;
+extern DBRecordType	FamiRec;
+extern UInt16		TotDatabases;
+extern UInt16		FileLoc;
+extern UInt16		ListViewSelectRecN;
+extern Boolean		SupportsColor;
+extern Boolean		Pre35Rom;
+extern Boolean		Pre60Rom;
+extern Char 		cUnknownStr[];
+extern Char		DbName[];
+extern Boolean		RelCalcEntry;
+extern UInt16		RelCalcRecN2;// rec num of indiv 2 in Rel Calc.
+extern UInt16		RelCalcGen;  // num of generations to search in Rel Calc.
+extern Boolean		RelCalcGetRec1;
+extern UInt16		PriorFormID;
+extern UInt16		HldIndiRecN;
+extern UInt16		Jump[];
+extern UInt16		IndiDBNumRecs;
+extern RGBColorType	Color1;
+extern RGBColorType	Color2;
+extern Boolean		UpdateFrm;
+extern Boolean		Prefs[]; 	// user preferences
+extern FontID		PrefFnts[]; // user font preferences
+extern Boolean		DynInDevice;
+extern Boolean		AboutMode;
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Local Variables and Defines
@@ -63,16 +63,16 @@ extern Boolean				AboutMode;
 
 // Descendancy Chart & Ancestry Chart variables
 static 	QueueHistType*		QueueHist = 0;
-static 	UInt16 				HistPos;
+static 	UInt16 			HistPos;
 static 	DescListType*		DescList = 0;
-static 	UInt16				TopDescPos;
-static 	UInt16				DescPos;
+static 	UInt16			TopDescPos;
+static 	UInt16			DescPos;
 
 // Date Calculator variables
-Char*					Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
-		 								"Jul","Aug","Sep","Oct","Nov","Dec" };
+Char*				Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
+		 				"Jul","Aug","Sep","Oct","Nov","Dec" };
 static 	Char*			MonNum[12] = {	"0", "1", "2","3", "4", "5", "6",
-										"7", "8","9", "10","11"};
+						"7", "8","9", "10","11"};
 static 	Char			DateCalcStr[20]; // holds date calculation results
 
 // Relationship Calculator variables
