@@ -10,7 +10,7 @@
 //                utility functions
 //
 ////////////////////////////////////////////////////////////////////////////////////
-// Copyright © 2001 - 2005 Battery Park Software Corporation.
+// Copyright Â© 2001 - 2005 Battery Park Software Corporation.
 // All rights reserved.
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////////////////////////////
 extern UInt32				InstallDate;
 extern UInt16				CurrentIndiRecN;
-extern UInt16  			CurrentSpouRecN; 
+extern UInt16  				CurrentSpouRecN; 
 extern MemHandle 			FamiRecH;
 extern MemHandle 			IndiRecH;
-extern DBRecordType  	IndiRec;
-extern DBRecordType		FamiRec;
+extern DBRecordType  		IndiRec;
+extern DBRecordType			FamiRec;
 extern UInt16				TotDatabases;
 extern UInt16				FileLoc;
 extern UInt16				ListViewSelectRecN;
@@ -49,8 +49,8 @@ extern UInt16				PriorFormID;
 extern UInt16				HldIndiRecN;
 extern UInt16				Jump[];
 extern UInt16				IndiDBNumRecs;
-extern RGBColorType		Color1;
-extern RGBColorType		Color2;
+extern RGBColorType			Color1;
+extern RGBColorType			Color2;
 extern Boolean				UpdateFrm;
 extern Boolean				Prefs[]; 	// user preferences
 extern FontID				PrefFnts[]; // user font preferences
@@ -69,11 +69,11 @@ static 	UInt16				TopDescPos;
 static 	UInt16				DescPos;
 
 // Date Calculator variables
-		 	Char*					Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
-		 												"Jul","Aug","Sep","Oct","Nov","Dec" };
-static 	Char*					MonNum[12] = {	"0", "1", "2","3", "4", "5", "6",
-														"7", "8","9", "10","11"};
-static 	Char					DateCalcStr[20]; // holds date calculation results
+Char*					Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
+		 								"Jul","Aug","Sep","Oct","Nov","Dec" };
+static 	Char*			MonNum[12] = {	"0", "1", "2","3", "4", "5", "6",
+										"7", "8","9", "10","11"};
+static 	Char			DateCalcStr[20]; // holds date calculation results
 
 // Relationship Calculator variables
 static Char*	cSibling	= "sibling";
@@ -85,16 +85,16 @@ static Char* 	cNephew	= "nephew";
 static Char* 	cNiece	= "niece";
 static Char* 	cCousin	= "cousin";
 static Char* 	cUncle	= "uncle";
-static Char* 	cAunt		= "aunt";
-static Char* 	cNst		= "st";
-static Char*	cNnd		= "nd";
-static Char*	cNrd		= "rd";
-static Char*	cNth		= "th";
+static Char* 	cAunt	= "aunt";
+static Char* 	cNst	= "st";
+static Char*	cNnd	= "nd";
+static Char*	cNrd	= "rd";
+static Char*	cNth	= "th";
 
 static Char				RCStr[32]; // holds relationship calculation results
-static RCListType*	RCList1;
-static RCListType*	RCList2;
-static RCHistType*	RCHist;
+static RCListType*		RCList1;
+static RCListType*		RCList2;
+static RCHistType*		RCHist;
 static UInt16			RCHistLast;
 static UInt16*			RCAncArr;
 static Boolean			RCFastSrch = true; // init
@@ -134,7 +134,7 @@ static void SetFocus (const UInt16 controlID)
 //              	form.
 //
 // PARAMETERS:  	-> objectID - 	id of the form object to hide or show.
-//						-> showObj 	-	true to show object, else false to hide
+//					-> showObj 	-	true to show object, else false to hide
 //
 // RETURNED:    	Nothing
 //
@@ -177,7 +177,7 @@ static void* GetObjectPtr (const UInt16 objectID)
 // DESCRIPTION: 	This routine returns a pointer to an object in the current form.
 //
 // PARAMETERS:  	-> objectID - id of the form object to get pointer to
-//						-> rect		- rectangle
+//					-> rect		- rectangle
 //
 // RETURNED:    	Nothing
 //
@@ -212,7 +212,7 @@ static Int16 GetControlValue (const UInt16 controlID)
 // DESCRIPTION: 	This routine sets the value of a control.
 //
 // PARAMETERS:  	-> controlID - the ID of a control
-//						-> value 	 -	true for on, false for off
+//					-> value 	 -	true for on, false for off
 //
 // RETURNED:    	Nothing.
 //
@@ -231,7 +231,7 @@ void SetControlValue (const UInt16 controlID, const Boolean value)
 //
 // PARAMETERS:    -> objectId  - Id of object to erase
 //
-// RETURNS:      	Nothing.
+// RETURNS:       Nothing.
 //
 // REVISIONS:     None.
 ////////////////////////////////////////////////////////////////////////////////////
@@ -245,13 +245,13 @@ void EraseRectangleObject (const UInt16 objectId)
 
 
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:      ShiftForm
+// FUNCTION:      	ShiftForm
 //
-// DESCRIPTION:   This routine resizes and draws the Individual Summary Form.
+// DESCRIPTION:		This routine resizes and draws the Individual Summary Form.
 //
 // PARAMETERS:   	None.
 //
-// RETURNED:      True if form was resized, else false (no changed in size).
+// RETURNED:      	True if form was resized, else false (no changed in size).
 //
 // REVISIONS:		None.
 ////////////////////////////////////////////////////////////////////////////////////
@@ -288,12 +288,12 @@ void EraseRectangleObject (const UInt16 objectId)
 
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:      DrawScreenLines
+// FUNCTION:      	DrawScreenLines
 //
-// DESCRIPTION:   Draws the lines on screen for the form ID passed in
-//						in the whichForm parameter.
+// DESCRIPTION:   	Draws the lines on screen for the form ID passed in
+//				  	in the whichForm parameter.
 //
-// PARAMETERS:    -> whichForm - the form ID on which the lines are to be drawn.
+// PARAMETERS:   	-> whichForm - the form ID on which the lines are to be drawn.
 //
 // RETURNS:      	Nothing.
 //
@@ -348,18 +348,18 @@ void DrawScreenLines (const UInt16 whichForm)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:      DrawObjectFrame
+// FUNCTION:      	DrawObjectFrame
 //
-// DESCRIPTION:   Draws a rectangular around an object in a form
+// DESCRIPTION:   	Draws a rectangular around an object in a form
 //
-// PARAMETERS:    -> objectId  - Id of object
-//						-> adjXAmt	 -	number of pixels to adjust width of frame
-//						-> adjXAmt	 -	number of pixels to adjust height of frame
-//						-> grayFrame - true if drawing gray frame, else false to 
+// PARAMETERS:		-> objectId  - Id of object
+//					-> adjXAmt	 -	number of pixels to adjust width of frame
+//					-> adjXAmt	 -	number of pixels to adjust height of frame
+//					-> grayFrame - true if drawing gray frame, else false to 
 //											draw black frame.
 // RETURNS:      	Nothing.
 //
-// REVISIONS:     None.
+// REVISIONS:     	None.
 ////////////////////////////////////////////////////////////////////////////////////
 static void DrawObjectFrame (const UInt16 objectId, const Int16 adjXAmt,
 							 const Int16 setYAmt, const Boolean grayFrame)
@@ -384,13 +384,13 @@ static void DrawObjectFrame (const UInt16 objectId, const Int16 adjXAmt,
 //
 // DESCRIPTION: 	This routine draws text to the screen in the color specified by
 // 					the colorRGB parameter.  The current draw state is pushed
-//						before any changes are made.  For black & white screens, no
-//						color change is attempted and the text is simply drawn.
+//					before any changes are made.  For black & white screens, no
+//					color change is attempted and the text is simply drawn.
 //
 // PARAMETERS:		-> chars 		- characters to draw.
-//						-> colorRGB 	- color to draw text.
-//						-> x				- x coordinate position to begin drawing text.
-//						-> y				- y coordinate position to begin drawing text.
+//					-> colorRGB 	- color to draw text.
+//					-> x			- x coordinate position to begin drawing text.
+//					-> y			- y coordinate position to begin drawing text.
 //
 // RETURNED:    	Nothing.
 //
@@ -417,15 +417,15 @@ void DrawCharsColorI (const Char* chars, RGBColorType colorRGB, Coord x, Coord y
 //  FUNCTION: 		RefFinderStr
 //
 //  DESCRIPTION:	Finds the nth (keyNumber) occurrence of the key string within
-//                the field string, where the key represents the delimiter of an
-//                souC (S) or Fami (@).
+//                	the field string, where the key represents the delimiter of an
+//                	souC (S) or Fami (@).
 //      		      
-//  PARAMETERS:   -> keyNumber - nth occurence of key within field.
-//                -> key       - one character string to look in field for.
-//                -> field     - string in which to look for key
-//                <- xRefStr   - string containing the nth key
+//  PARAMETERS:   	-> keyNumber - nth occurence of key within field.
+//                	-> key       - one character string to look in field for.
+//                	-> field     - string in which to look for key
+//                	<- xRefStr   - string containing the nth key
 //
-//  RETURNS: 	   if unsuccessful a false is returned.
+//  RETURNS: 	   	if unsuccessful a false is returned.
 //
 //  REVISIONS:		None.
 ////////////////////////////////////////////////////////////////////////////////////
@@ -514,12 +514,12 @@ UInt16 RefCounter (Char key, Char *field)
 ////////////////////////////////////////////////////////////////////////////////////
 static void RegisterCodeEntry (void)
 {
-   FieldPtr   	fldP;
-   Char			*code;
-   Int16			num1, num2, num3, num4, num5;
-	Int16			numTot;
-	Char			hld_str[3] = "\0\0\0"; // must init!!
-   Boolean		valid = false;
+	FieldPtr   	fldP;
+   	Char		*code;
+   	Int16		num1, num2, num3, num4, num5;
+	Int16		numTot;
+	Char		hld_str[3] = "\0\0\0"; // must init!!
+   	Boolean		valid = false;
 
    fldP = GetObjectPtr (RegisterCodeField);
 
@@ -576,17 +576,17 @@ static void RegisterCodeEntry (void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:      RegisterHandleEvent
+// FUNCTION:    RegisterHandleEvent
 //
-// DESCRIPTION:   This routine is the event handler for the Registration
-//                Code Entry Form.
+// DESCRIPTION:	This routine is the event handler for the Registration
+//              Code Entry Form.
 //
-// PARAMETERS:    event  - a pointer to an EventType structure
+// PARAMETERS:	event  - a pointer to an EventType structure
 //
-// RETURNED:      true if the event has handle and should not be passed
-//                to a higher level handler.
+// RETURNED:    true if the event has handle and should not be passed
+//              to a higher level handler.
 //
-// REVISIONS:		None.
+// REVISIONS:	None.
 ////////////////////////////////////////////////////////////////////////////////////
 Boolean RegisterHandleEvent (EventPtr event)
 {
@@ -632,22 +632,22 @@ Boolean RegisterHandleEvent (EventPtr event)
 
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:     	ShowSplash
+// FUNCTION:    ShowSplash
 //
-// DESCRIPTION:  	This routine displays the application's splash screen.
+// DESCRIPTION: This routine displays the application's splash screen.
 //
-// PARAMETERS:   	->	doDelay -	true if we want to delay splash screen.
+// PARAMETERS: 	->	doDelay - true if we want to delay splash screen.
 //
-// RETURNED:     	true if registered, otherwise false
+// RETURNED: 	true if registered, otherwise false
 //
-// REVISIONS:		None.
+// REVISIONS:	None.
 ////////////////////////////////////////////////////////////////////////////////////
 static Boolean ShowSplash (Boolean doDelay)
 {
- 	float    splashDelay		= ShortSplashDelay; // init
-   FontID	currFont;
-   UInt32	startSecs 		= TimGetSeconds ();
-  	Char     dayRemStr[25] 	= TRLDAYS_STR;
+ 	float  	splashDelay		= ShortSplashDelay; // init
+   	FontID	currFont;
+   	UInt32	startSecs 		= TimGetSeconds ();
+  	Char    dayRemStr[25] 	= TRLDAYS_STR;
 
 	#ifdef REGISTERED
 	Prefs[Registered] = true;	
@@ -672,11 +672,11 @@ static Boolean ShowSplash (Boolean doDelay)
 
 	else { // !Registered version
 
-		Int32				daysRemaining; // days left in trial period;
-	   Char     		holdStr[3];
-   	UInt32   		ElapsedSecs;   
+		Int32			daysRemaining; // days left in trial period;
+	   	Char     		holdStr[3];
+   		UInt32   		ElapsedSecs;   
 		Int32 			remSecs;
-		Int32				remSecsLast;
+		Int32			remSecsLast;
 		UInt32			timeSec;
 		RectangleType 	rect;
 		
@@ -773,23 +773,23 @@ static Boolean ShowSplash (Boolean doDelay)
 	   	WinEraseRectangle (&rect, 0);	
 	   	ShowObject (SplashDelayLabel, false);
 	   	ShowObject (SplashRegisterButton, true);
-			ShowObject (SplashContinueButton, true);
+		ShowObject (SplashContinueButton, true);
 			
 	  } // else
 
 	return false;
 }
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:    	SplashGotoForm
+// FUNCTION: 	SplashGotoForm
 //
-// DESCRIPTION: 	This routine calls the correct form after the splash screen is
+// DESCRIPTION: This routine calls the correct form after the splash screen is
 //						displayed.
 //
-// PARAMETERS:  	None.
+// PARAMETERS:  None.
 //
-// RETURNED:    	Nothing.
+// RETURNED:    Nothing.
 //
-// REVISIONS:		None.
+// REVISIONS:	None.
 ////////////////////////////////////////////////////////////////////////////////////
 void SplashGotoForm (void)
 {
