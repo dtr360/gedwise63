@@ -89,15 +89,15 @@ DBRecordType	RepoRec;
 DBRecordType	RepCRec;
 DBRecordType	NoteRec;
 
-UInt16	        HldIndiRecN		    = NO_REC; 	   // record num in IndiDB
-UInt16    	ListViewSelectRecN	    = NO_REC; 	   // set when leave ListView
-static UInt32   PrimaryBirtRecN		    = NO_REC_LONG; // record number in EvenDB
-static UInt32   PrimaryDeatRecN   	    = NO_REC_LONG; // record number in EvenDB 
-extern UInt16	RelCalcRecN1;								// record number in IndiDB
-static UInt32	FirstChilRecN		    = NO_REC_LONG; // record number in ChilDB
-static UInt32	LastChilRecN		    = NO_REC_LONG; // record number in ChilDB
-static UInt32	FirstEvenRecN		    = NO_REC_LONG; // record number in EvenDB
-static UInt32	LastEvenRecN		    = NO_REC_LONG; // record number in EvenDB
+UInt16	        HldIndiRecN		= NO_REC; 	   // record num in IndiDB
+UInt16    	ListViewSelectRecN	= NO_REC;	// set when leave ListView
+static UInt32   PrimaryBirtRecN		= NO_REC_LONG; // record number in EvenDB
+static UInt32   PrimaryDeatRecN   	= NO_REC_LONG; // record number in EvenDB 
+extern UInt16	RelCalcRecN1;				// record number in IndiDB
+static UInt32	FirstChilRecN		= NO_REC_LONG; // record number in ChilDB
+static UInt32	LastChilRecN		= NO_REC_LONG; // record number in ChilDB
+static UInt32	FirstEvenRecN		= NO_REC_LONG; // record number in EvenDB
+static UInt32	LastEvenRecN		= NO_REC_LONG; // record number in EvenDB
 static UInt16	ChilNumInFam;								// position based on total children
 
 static UInt16  LastAliaNum 		= 0;	// based on total Aliases
