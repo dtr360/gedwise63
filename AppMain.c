@@ -46,37 +46,37 @@ typedef struct {
 ////////////////////////////////////////////////////////////////////////////////////
 //   Global Variables
 ////////////////////////////////////////////////////////////////////////////////////
-static DVLineType*	DVLines	      = 0; // holds gadget array
-static UInt16		DVLinesMax    = DV_LINES_MAX;
-static MemHandle  	DVLinesH      = NULL; // handle to gadget array
+static DVLineType*	DVLines	        = 0; // holds gadget array
+static UInt16		DVLinesMax      = DV_LINES_MAX;
+static MemHandle  	DVLinesH        = NULL; // handle to gadget array
 
-static UInt16  TopVisIndiRecN         = 0; // record number in IndiDB
-static UInt32  TopVisChilRecN         = 0; // record number in ChilDB
-static UInt32  TopVisEvenRecN         = 0; // record number in EvenDB
-static UInt16  TopVisAliaNum 	      = 0; // position based on total Aliases
-static UInt16  TopVisFamiNum   	      = 0; // position based on total Marriages
-static UInt16  TopVisSouCNum   	      = 0; // position based on total Sours
+static UInt16  TopVisIndiRecN       = 0; // record number in IndiDB
+static UInt32  TopVisChilRecN       = 0; // record number in ChilDB
+static UInt32  TopVisEvenRecN       = 0; // record number in EvenDB
+static UInt16  TopVisAliaNum 	    = 0; // position based on total Aliases
+static UInt16  TopVisFamiNum   	    = 0; // position based on total Marriages
+static UInt16  TopVisSouCNum   	    = 0; // position based on total Sours
 
-UInt16         CurrentIndiRecN        = NO_REC; // record num in IndiDB
-UInt16         CurrentSpouRecN        = NO_REC; // record num in IndiDB
-UInt32         CurrentFamiRecN        = NO_REC_LONG; // record num in FamiDB
-UInt32         CurrentEvenRecN        = NO_REC_LONG; // record num in EvenDB
-static UInt16  CurrentAliaRecN        = NO_REC; 	   // record num in IndiDB
-static UInt32  CurrentMarrRecN        = NO_REC_LONG; // record num in EvenDB
-static UInt32  CurrentSourRecN        = NO_REC_LONG; // record num in SourDB
-static UInt32  CurrentRepoRecN        = NO_REC_LONG; // record num in RepoDB
-static UInt32  CurrentRepCRecN        = NO_REC_LONG; // record num in RepoDB
+UInt16         CurrentIndiRecN      = NO_REC; // record num in IndiDB
+UInt16         CurrentSpouRecN      = NO_REC; // record num in IndiDB
+UInt32         CurrentFamiRecN      = NO_REC_LONG; // record num in FamiDB
+UInt32         CurrentEvenRecN      = NO_REC_LONG; // record num in EvenDB
+static UInt16  CurrentAliaRecN      = NO_REC; 	   // record num in IndiDB
+static UInt32  CurrentMarrRecN      = NO_REC_LONG; // record num in EvenDB
+static UInt32  CurrentSourRecN      = NO_REC_LONG; // record num in SourDB
+static UInt32  CurrentRepoRecN      = NO_REC_LONG; // record num in RepoDB
+static UInt32  CurrentRepCRecN      = NO_REC_LONG; // record num in RepoDB
 
-MemHandle      IndiRecH               = NULL;
-MemHandle      AliaRecH               = NULL;
-MemHandle      EvenRecH 	      = NULL;
-MemHandle      FamiRecH 	      = NULL;
-MemHandle      ChilRecH               = NULL;
-MemHandle      SourRecH               = NULL;
-MemHandle      SouCRecH               = NULL;
-MemHandle      RepoRecH               = NULL;
-MemHandle      RepCRecH               = NULL;
-MemHandle      NoteRecH               = NULL;
+MemHandle       IndiRecH            = NULL;
+MemHandle       AliaRecH            = NULL;
+MemHandle       EvenRecH            = NULL;
+MemHandle       FamiRecH            = NULL;
+MemHandle       ChilRecH            = NULL;
+MemHandle       SourRecH            = NULL;
+MemHandle       SouCRecH            = NULL;
+MemHandle       RepoRecH            = NULL;
+MemHandle       RepCRecH            = NULL;
+MemHandle       NoteRecH            = NULL;
 
 DBRecordType 	IndiRec;
 DBRecordType 	AliaRec;
@@ -89,60 +89,60 @@ DBRecordType	RepoRec;
 DBRecordType	RepCRec;
 DBRecordType	NoteRec;
 
-UInt16	        HldIndiRecN		= NO_REC; 	   // record num in IndiDB
-UInt16    	ListViewSelectRecN	= NO_REC;	// set when leave ListView
-static UInt32   PrimaryBirtRecN		= NO_REC_LONG; // record number in EvenDB
-static UInt32   PrimaryDeatRecN   	= NO_REC_LONG; // record number in EvenDB 
-extern UInt16	RelCalcRecN1;				// record number in IndiDB
-static UInt32	FirstChilRecN		= NO_REC_LONG; // record number in ChilDB
-static UInt32	LastChilRecN		= NO_REC_LONG; // record number in ChilDB
-static UInt32	FirstEvenRecN		= NO_REC_LONG; // record number in EvenDB
-static UInt32	LastEvenRecN		= NO_REC_LONG; // record number in EvenDB
-static UInt16	ChilNumInFam;								// position based on total children
+UInt16	        HldIndiRecN		    = NO_REC; 	    // record num in IndiDB
+UInt16    	    ListViewSelectRecN	= NO_REC;	    // set when leave ListView
+static UInt32   PrimaryBirtRecN		= NO_REC_LONG;  // record number in EvenDB
+static UInt32   PrimaryDeatRecN   	= NO_REC_LONG;  // record number in EvenDB 
+extern UInt16	RelCalcRecN1;				        // record number in IndiDB
+static UInt32	FirstChilRecN		= NO_REC_LONG;  // record number in ChilDB
+static UInt32	LastChilRecN		= NO_REC_LONG;  // record number in ChilDB
+static UInt32	FirstEvenRecN		= NO_REC_LONG;  // record number in EvenDB
+static UInt32	LastEvenRecN		= NO_REC_LONG;  // record number in EvenDB
+static UInt16	ChilNumInFam;						// position based on total children
 
-static UInt16  LastAliaNum 		= 0;	// based on total Aliases
-static UInt16  LastSouCNum       	= 0;  	// based on total Sources
-static UInt16 	LastFamiNum       	= 0;  	// based on total Families
+static UInt16   LastAliaNum 		= 0;	        // based on total Aliases
+static UInt16   LastSouCNum       	= 0;  	        // based on total Sources
+static UInt16 	LastFamiNum       	= 0;  	        // based on total Families
 
-static Char		NoteXRef[XREF_LEN+1];
-static Char*		SouCList;						// used in SouCViewHandleEvent
-static MemHandle	SouCListH = NULL;
+static Char		 NoteXRef[XREF_LEN+1];
+static Char*	 SouCList;				            // used in SouCViewHandleEvent
+static MemHandle SouCListH = NULL;
 
-static Boolean  AlreadyHaveFamily		= false;
-Boolean 	    GetFirstName 		= false; // used in ListViewHandleEvent
-Boolean 		SupportsColor;			// true if device supports color
-Boolean			UseFullNoteScrn		= false; // true to use entire screen for note
-Boolean			RelCalcEntry		= false; // 
+static Boolean  AlreadyHaveFamily	= false;
+Boolean 	    GetFirstName 		= false;        // used in ListViewHandleEvent
+Boolean 		SupportsColor;			            // true if device supports color
+Boolean			UseFullNoteScrn		= false;        // true to use entire screen for note
+Boolean			RelCalcEntry		= false;    
 Boolean			RelCalcGetRec1;
 
-static UInt16	DetailViewLastLine; 	// Line after last one containing data
+static UInt16	DetailViewLastLine; 	            // Line after last one containing data
 static UInt16	DetailViewFirstPlainLine;
 static UInt16	TopDetailViewLine;
-static UInt16	PriorTopDetailViewLine 	    = 0; // Used for misc Event Handlers
-static UInt16	PriorSouCTopDetailViewLine  = 0; // Used for SouCViewHandleEvent
-static UInt16   PriorSourTopDetailViewLine  = 0; // Used for SourViewHandleEvent
-static UInt16   PriorRepoTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
-static UInt16   PriorRepCTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
-static UInt16   SouCViewPriorSouCNumber     = 1; // this must be set to a 1 here!
-static UInt16	PriorSouCFormID;  				  // Used in SouCViewHandleEvent
-static UInt16	PriorNoteFormID;  				  // Return to prior form aft Note View
+static UInt16	PriorTopDetailViewLine 	   = 0;     // Used for misc Event Handlers
+static UInt16	PriorSouCTopDetailViewLine = 0;     // Used for SouCViewHandleEvent
+static UInt16   PriorSourTopDetailViewLine = 0;     // Used for SourViewHandleEvent
+static UInt16   PriorRepoTopDetailViewLine = 0;     // Used for RepoViewHandleEvent
+static UInt16   PriorRepCTopDetailViewLine = 0;     // Used for RepoViewHandleEvent
+static UInt16   SouCViewPriorSouCNumber    = 1;     // this must be set to a 1 here!
+static UInt16	PriorSouCFormID;  				    // Used in SouCViewHandleEvent
+static UInt16	PriorNoteFormID;  				    // Return to prior form aft Note View
 UInt16			PriorFormID;
-UInt16			IndiDBNumRecs 		        = 0; // no. of individuals in open db
+UInt16			IndiDBNumRecs 		        = 0;    // no. of individuals in open db
 UInt16			ExportMemoIndex;
 
-Boolean			AboutMode 	= false;
+Boolean			AboutMode = false;
 static UInt16	IndiListTblRows;
 static Char 	DataStr[32];			// used in various locations
 Char			DescStr[5];				// used for event description header in DV
 UInt16			EvenTypeN;				// used for Note description header in DV
-UInt16			TotDatabases;  		// total databases in memory.
-DmOpenRef 		MemoDbRef	= NULL;	// ref to system's memo database
+UInt16			TotDatabases;  		    // total databases in memory.
+DmOpenRef 		MemoDbRef	= NULL;	    // ref to system's memo database
 DmOpenRef		OpenDbRef 	= NULL; 	// ref to the open database in RAM
 FileRef			OpenFileRef = NULL; 	// ref to the open database on EC
-DbArrayType* 	DatabaseList;     	// holds database list
-Boolean			Graf2Device = false; // true if device uses Graffiti 2
+DbArrayType* 	DatabaseList;     	    // holds database list
+Boolean			Graf2Device = false;    // true if device uses Graffiti 2
 Boolean			DynInDevice = false;	// true if device has dynamic input area
-Boolean			FivWayDevice= false; // true if device has five way navigator button
+Boolean			FivWayDevice= false;    // true if device has five way navigator button
 
 // These are used for accelerated scrolling
 UInt16 			LastSeconds 		= 0;
@@ -160,13 +160,13 @@ Boolean			ExpCardCapable 	    = false; // true if HH is Expansion Card Capable
 Boolean			RedrawBaseFrm		= false;
 
 // The following global variable are saved to a preferences state file.
-UInt32       	InstallDate 			    = 0; // days from 1/1/1904 since installation.
-Char			DbName[USER_DB_NAME_SZ+1]   = "\0"; // name of open db
-UInt16			FileLoc					    = 0;		// volume or card db is on
-UInt16			RelCalcRecN2			    = NO_REC;// rec number of indiv 2 in Rel. Calc. Wnd
-UInt16			Jump[JUMP_MAX]; 				// rec numbers of last 10 indiv viewed
-RGBColorType	Color1;							// init in StartApplication
-RGBColorType	Color2;							// init in StartApplication
+UInt32       	InstallDate 			  = 0;      // days from 1/1/1904 since installation.
+Char			DbName[USER_DB_NAME_SZ+1] = "\0";   // name of open db
+UInt16			FileLoc					  = 0;	    // volume or card db is on
+UInt16			RelCalcRecN2			  = NO_REC; // rec number of indiv 2 in Rel. Calc. Wnd
+UInt16			Jump[JUMP_MAX]; 				    // rec numbers of last 10 indiv viewed
+RGBColorType	Color1;							    // init in StartApplication
+RGBColorType	Color2;							    // init in StartApplication
 FontID      	PrefFnts[TotPrefFnts]	    = {stdFont, stdFont, stdFont, largeBoldFont};
 
 #ifdef REGISTERED
@@ -431,12 +431,12 @@ static Boolean DetailViewCheckNote (Char* noteXRef, Boolean* useNoteView,
 //                It is assumed that SouCRec is filled before calling
 //                this function.
 //
-// PARAMETERS:    -> noteXRef   	- 	Note cross reference number.
-//						-> noteButton  - 	the "Note" button id for the form.
-//						-> fieldNum 	- 	note field to add.
-//              	-> width			- 	width already occupied on the line.
-//             	-> maxWidth		- 	can't add words past this width.
-//						-> titleStr		-	title to add to window.
+// PARAMETERS:    -> noteXRef   - 	Note cross reference number.
+//				  -> noteButton - 	the "Note" button id for the form.
+//				  -> fieldNum 	- 	note field to add.
+//                -> width		- 	width already occupied on the line.
+//             	  -> maxWidth	- 	can't add words past this width.
+//				  -> titleStr	-	title to add to window.
 //
 // RETURNED:      Nothing.
 //
@@ -471,18 +471,18 @@ static void DetailViewAddNote (Char* noteXRef, UInt16 noteButton, UInt16 fieldNu
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION:      DetailViewGetSouCList
+// FUNCTION:    DetailViewGetSouCList
 //
-// DESCRIPTION:   The routine initializes the SouCList string for the SouCDetailForm.
-//						This string simly holds the list of	sources for a given record.
-//   					The SouCListH is freed in SouCViewHandleEvent.
+// DESCRIPTION: The routine initializes the SouCList string for the SouCDetailForm.
+//				This string simly holds the list of	sources for a given record.
+//   			The SouCListH is freed in SouCViewHandleEvent.
 //
-// PARAMETERS:    -> SouCStr 	-	pointer to the source citation list string from
-//											a locked record.
+// PARAMETERS:  -> SouCStr 	-	pointer to the source citation list string from
+//								a locked record.
 //
-// RETURNED:      Nothing.
+// RETURNED:    Nothing.
 //
-// REVISIONS:		None.
+// REVISIONS:	None.
 ////////////////////////////////////////////////////////////////////////////////////
 static void DetailViewGetSouCList (Char* SouCStr)
 {
@@ -490,7 +490,7 @@ static void DetailViewGetSouCList (Char* SouCStr)
    
    SouCListH = MemHandleNew (StrLen (SouCStr)+1);
 	
-	ErrFatalDisplayIf (!SouCListH, "Out of memory");
+   ErrFatalDisplayIf (!SouCListH, "Out of memory");
    
    SouCList = MemHandleLock (SouCListH);
    StrCopy (SouCList, SouCStr);
@@ -651,11 +651,11 @@ static Char* DetailViewGetHeader (RecType recType, UInt16 headNo)
 //
 // DESCRIPTION: 	This routine draws the Detail View Gadget
 //
-// PARAMETERS:		-> rec -			record that will have information drawn
-//						-> recType -	type of record (eg IndiDB, FamiDB, etc)
-//						-> viewGadget-	name of gadget we are drawing too
-//						-> upButton -	name of form's up button
-//						-> downButton-	name of form's down button
+// PARAMETERS:		-> rec -		record that will have information drawn
+//					-> recType -	type of record (eg IndiDB, FamiDB, etc)
+//					-> viewGadget-	name of gadget we are drawing too
+//					-> upButton -	name of form's up button
+//					-> downButton-	name of form's down button
 //
 // RETURNED:    	Nothing.
 //
@@ -673,7 +673,7 @@ static void DetailViewDraw (DBRecordType rec, RecType recType,	UInt16 viewGadget
    Boolean 			scrollableD;
    RectangleType 	rect;
    Int16 			bottomOfRecordViewDisplay; 
-	Char				headerStr[6]; // 4-char header + ":" + terminator 
+	Char			headerStr[6]; // 4-char header + ":" + terminator 
 	UInt16			fieldNo;
 	UInt16 			evenTypeN;
 
@@ -4107,8 +4107,8 @@ static Boolean AliaViewHandleEvent (EventPtr event)
 	         }
          break;
       
-     	case menuEvent:
-         return MenuDoCommand (event->data.menu.itemID);
+      case menuEvent:
+        return MenuDoCommand (event->data.menu.itemID);
 	
 	   case frmOpenEvent:
      		DetailViewResizeForm (true);
