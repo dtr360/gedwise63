@@ -46,37 +46,37 @@ typedef struct {
 ////////////////////////////////////////////////////////////////////////////////////
 //   Global Variables
 ////////////////////////////////////////////////////////////////////////////////////
-static DVLineType*	DVLines 			= 0; // holds gadget array
-static UInt16			DVLinesMax 		= DV_LINES_MAX;
-static MemHandle  	DVLinesH 		= NULL; // handle to gadget array
+static DVLineType*	DVLines	      = 0; // holds gadget array
+static UInt16		DVLinesMax    = DV_LINES_MAX;
+static MemHandle  	DVLinesH      = NULL; // handle to gadget array
 
-static UInt16	TopVisIndiRecN   		= 0; // record number in IndiDB
-static UInt32  TopVisChilRecN   		= 0; // record number in ChilDB
-static UInt32  TopVisEvenRecN   		= 0; // record number in EvenDB
-static UInt16  TopVisAliaNum 			= 0; // position based on total Aliases
-static UInt16  TopVisFamiNum   		= 0; // position based on total Marriages
-static UInt16  TopVisSouCNum   		= 0; // position based on total Sours
+static UInt16  TopVisIndiRecN         = 0; // record number in IndiDB
+static UInt32  TopVisChilRecN         = 0; // record number in ChilDB
+static UInt32  TopVisEvenRecN         = 0; // record number in EvenDB
+static UInt16  TopVisAliaNum 	      = 0; // position based on total Aliases
+static UInt16  TopVisFamiNum   	      = 0; // position based on total Marriages
+static UInt16  TopVisSouCNum   	      = 0; // position based on total Sours
 
-UInt16    		CurrentIndiRecN		= NO_REC; // record num in IndiDB
-UInt16    		CurrentSpouRecN      = NO_REC; // record num in IndiDB
-UInt32			CurrentFamiRecN      = NO_REC_LONG; // record num in FamiDB
-UInt32			CurrentEvenRecN      = NO_REC_LONG; // record num in EvenDB
-static UInt16  CurrentAliaRecN      = NO_REC; 		// record num in IndiDB
-static UInt32  CurrentMarrRecN      = NO_REC_LONG; // record num in EvenDB
-static UInt32  CurrentSourRecN      = NO_REC_LONG; // record num in SourDB
-static UInt32  CurrentRepoRecN      = NO_REC_LONG; // record num in RepoDB
-static UInt32  CurrentRepCRecN      = NO_REC_LONG; // record num in RepoDB
+UInt16         CurrentIndiRecN        = NO_REC; // record num in IndiDB
+UInt16         CurrentSpouRecN        = NO_REC; // record num in IndiDB
+UInt32         CurrentFamiRecN        = NO_REC_LONG; // record num in FamiDB
+UInt32         CurrentEvenRecN        = NO_REC_LONG; // record num in EvenDB
+static UInt16  CurrentAliaRecN        = NO_REC; 	   // record num in IndiDB
+static UInt32  CurrentMarrRecN        = NO_REC_LONG; // record num in EvenDB
+static UInt32  CurrentSourRecN        = NO_REC_LONG; // record num in SourDB
+static UInt32  CurrentRepoRecN        = NO_REC_LONG; // record num in RepoDB
+static UInt32  CurrentRepCRecN        = NO_REC_LONG; // record num in RepoDB
 
-MemHandle 	   IndiRecH 				= NULL;
-MemHandle 	   AliaRecH 				= NULL;
-MemHandle 	   EvenRecH 				= NULL;
-MemHandle 	   FamiRecH 				= NULL;
-MemHandle 	   ChilRecH 				= NULL;
-MemHandle 	   SourRecH 				= NULL;
-MemHandle 	   SouCRecH 				= NULL;
-MemHandle 	   RepoRecH 				= NULL;
-MemHandle 	   RepCRecH 				= NULL;
-MemHandle 	   NoteRecH 				= NULL;
+MemHandle      IndiRecH               = NULL;
+MemHandle      AliaRecH               = NULL;
+MemHandle      EvenRecH 	      = NULL;
+MemHandle      FamiRecH 	      = NULL;
+MemHandle      ChilRecH               = NULL;
+MemHandle      SourRecH               = NULL;
+MemHandle      SouCRecH               = NULL;
+MemHandle      RepoRecH               = NULL;
+MemHandle      RepCRecH               = NULL;
+MemHandle      NoteRecH               = NULL;
 
 DBRecordType 	IndiRec;
 DBRecordType 	AliaRec;
@@ -89,30 +89,30 @@ DBRecordType	RepoRec;
 DBRecordType	RepCRec;
 DBRecordType	NoteRec;
 
-UInt16			HldIndiRecN				= NO_REC; 		// record num in IndiDB
-UInt16    		ListViewSelectRecN	    = NO_REC; 		// set when leave ListView
+UInt16	        HldIndiRecN		    = NO_REC; 	   // record num in IndiDB
+UInt16    	ListViewSelectRecN	    = NO_REC; 	   // set when leave ListView
 static UInt32   PrimaryBirtRecN		    = NO_REC_LONG; // record number in EvenDB
 static UInt32   PrimaryDeatRecN   	    = NO_REC_LONG; // record number in EvenDB 
 extern UInt16	RelCalcRecN1;								// record number in IndiDB
-static UInt32	FirstChilRecN			= NO_REC_LONG;	// record number in ChilDB
-static UInt32	LastChilRecN			= NO_REC_LONG;	// record number in ChilDB
-static UInt32	FirstEvenRecN			= NO_REC_LONG;	// record number in EvenDB
-static UInt32	LastEvenRecN			= NO_REC_LONG;	// record number in EvenDB
+static UInt32	FirstChilRecN		    = NO_REC_LONG; // record number in ChilDB
+static UInt32	LastChilRecN		    = NO_REC_LONG; // record number in ChilDB
+static UInt32	FirstEvenRecN		    = NO_REC_LONG; // record number in EvenDB
+static UInt32	LastEvenRecN		    = NO_REC_LONG; // record number in EvenDB
 static UInt16	ChilNumInFam;								// position based on total children
 
-static UInt16  LastAliaNum 			= 0;		// based on total Aliases
+static UInt16  LastAliaNum 		= 0;	// based on total Aliases
 static UInt16  LastSouCNum       	= 0;  	// based on total Sources
 static UInt16 	LastFamiNum       	= 0;  	// based on total Families
 
-static Char			NoteXRef[XREF_LEN+1];
+static Char		NoteXRef[XREF_LEN+1];
 static Char*		SouCList;						// used in SouCViewHandleEvent
-static MemHandle	SouCListH 			= NULL;
+static MemHandle	SouCListH = NULL;
 
 static Boolean  AlreadyHaveFamily		= false;
-Boolean 	    GetFirstName 			= false; // used in ListViewHandleEvent
-Boolean 		SupportsColor;						// true if device supports color
-Boolean			UseFullNoteScrn		    = false; // true to use entire screen for note
-Boolean			RelCalcEntry			= false; // 
+Boolean 	    GetFirstName 		= false; // used in ListViewHandleEvent
+Boolean 		SupportsColor;			// true if device supports color
+Boolean			UseFullNoteScrn		= false; // true to use entire screen for note
+Boolean			RelCalcEntry		= false; // 
 Boolean			RelCalcGetRec1;
 
 static UInt16	DetailViewLastLine; 	// Line after last one containing data
@@ -123,7 +123,7 @@ static UInt16	PriorSouCTopDetailViewLine  = 0; // Used for SouCViewHandleEvent
 static UInt16   PriorSourTopDetailViewLine  = 0; // Used for SourViewHandleEvent
 static UInt16   PriorRepoTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
 static UInt16   PriorRepCTopDetailViewLine  = 0; // Used for RepoViewHandleEvent
-static UInt16   SouCViewPriorSouCNumber 	= 1; // this must be set to a 1 here!
+static UInt16   SouCViewPriorSouCNumber     = 1; // this must be set to a 1 here!
 static UInt16	PriorSouCFormID;  				  // Used in SouCViewHandleEvent
 static UInt16	PriorNoteFormID;  				  // Return to prior form aft Note View
 UInt16			PriorFormID;
