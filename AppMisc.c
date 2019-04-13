@@ -2,7 +2,7 @@
 //
 // PROJECT:  	GedWise 6.0 & 6.1
 //
-// FILE:	AppMisc.c
+// FILE:		AppMisc.c
 //
 // AUTHOR:  	Daniel T. Rencricca: October 15, 2004
 //
@@ -40,7 +40,7 @@ extern Boolean		SupportsColor;
 extern Boolean		Pre35Rom;
 extern Boolean		Pre60Rom;
 extern Char 		cUnknownStr[];
-extern Char		DbName[];
+extern Char			DbName[];
 extern Boolean		RelCalcEntry;
 extern UInt16		RelCalcRecN2;// rec num of indiv 2 in Rel Calc.
 extern UInt16		RelCalcGen;  // num of generations to search in Rel Calc.
@@ -62,14 +62,14 @@ extern Boolean		AboutMode;
 ////////////////////////////////////////////////////////////////////////////////////
 
 // Descendancy Chart & Ancestry Chart variables
-static 	QueueHistType*		QueueHist = 0;
+static 	QueueHistType*	QueueHist = 0;
 static 	UInt16 			HistPos;
-static 	DescListType*		DescList = 0;
+static 	DescListType*	DescList = 0;
 static 	UInt16			TopDescPos;
 static 	UInt16			DescPos;
 
 // Date Calculator variables
-Char*				Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
+Char*					Months[12] = {	"Jan","Feb","Mar","Apr","May","Jun",
 		 				"Jul","Aug","Sep","Oct","Nov","Dec" };
 static 	Char*			MonNum[12] = {	"0", "1", "2","3", "4", "5", "6",
 						"7", "8","9", "10","11"};
@@ -708,8 +708,8 @@ static Boolean ShowSplash (Boolean doDelay)
 
 		// -- Display days remaining message --
 		
-   	StrIToA (holdStr, daysRemaining);
-   	StrCat (dayRemStr, holdStr);
+   		StrIToA (holdStr, daysRemaining);
+   		StrCat (dayRemStr, holdStr);
 		WinDrawChars (dayRemStr, StrLen (dayRemStr), 19, 76);
 
    	// -- handle if user is past trial period --
@@ -1274,61 +1274,61 @@ Boolean PreferencesHandleEvent (EventPtr event)
 static void AncestryDrawRecord (void *table, Int16 row, Int16 column, 
    RectanglePtr bounds)
 {
-   UInt16 	      recN; // record in IndiDB
-   DBRecordType  	rec;
-   MemHandle      recH = NULL;
-   FontID 	      curFont;
-   Int16 			x, y;
+	UInt16 	      recN; // record in IndiDB
+	DBRecordType  	rec;
+	MemHandle      recH = NULL;
+	FontID 	      curFont;
+   	Int16 			x, y;
 	Char				dash[] = "   ";  // must be 3 spaces
 
 	#ifdef GREMLINS_MEM_CHK
   	MemHeapScramble (MemHeapID (0,1));
  	#endif
 
- 	x = bounds->topLeft.x;
-   y = bounds->topLeft.y;
-   recN = TblGetRowData (table, row);
+	x = bounds->topLeft.x;
+	y = bounds->topLeft.y;
+	recN = TblGetRowData (table, row);
 
 	if (recN == NO_REC)
 	  	TblSetRowSelectable (table, row, false);
 	else  // get individual record to draw
    	DbGetRecord (IndiDB, recN, &rec, &recH);
  		
-   curFont = FntSetFont (CHART_FONT);
-   switch (row)
-   	{
-   	case 0:
-   	case 2:
-   	case 6:
-   	case 8:
-   		dash[0] = 0x09;
-   		dash[1] = 0x97;
-     		WinDrawChars (dash, 3, x, y);
-   		bounds->topLeft.x+= FntCharsWidth (dash, 3);
-   		break;
-   	
-   	case 3:
-   	case 5:
-   		// ignore the two blank lines.
- 			return;
- 			  	
-   	case 1:
-   	case 7:
-   		dash[0] = 0x96;
-   		dash[2] = '\0';
-     		WinDrawChars (dash, 2, x, y);
-   		bounds->topLeft.x+= FntCharsWidth (dash, 2);
-   		break;
-   	
-     	case 4:
-     		dash[0] = 0x2D;
-   		dash[2] = '\0';
-     		WinDrawChars (dash, 2, x, y);
-   		bounds->topLeft.x+= FntCharsWidth (dash, 2);
-   		break;
-   	
-   	default:
-   		break;
+	curFont = FntSetFont (CHART_FONT);
+	switch (row)
+   		{
+		case 0:
+		case 2:
+		case 6:
+		case 8:
+			dash[0] = 0x09;
+			dash[1] = 0x97;
+				WinDrawChars (dash, 3, x, y);
+			bounds->topLeft.x+= FntCharsWidth (dash, 3);
+			break;
+
+		case 3:
+		case 5:
+			// ignore the two blank lines.
+				return;
+
+		case 1:
+		case 7:
+			dash[0] = 0x96;
+			dash[2] = '\0';
+				WinDrawChars (dash, 2, x, y);
+			bounds->topLeft.x+= FntCharsWidth (dash, 2);
+			break;
+
+			case 4:
+				dash[0] = 0x2D;
+			dash[2] = '\0';
+				WinDrawChars (dash, 2, x, y);
+			bounds->topLeft.x+= FntCharsWidth (dash, 2);
+			break;
+
+		default:
+   			break;
 		}   	
 
 	if (recN != NO_REC) { 
@@ -1400,12 +1400,12 @@ static void AncestrySetRow (TablePtr table, Int16 row1, Int16 row2)
 ////////////////////////////////////////////////////////////////////////////////////
 static void AncestryLoadTable (void)
 {
-	Int16			row;
-   UInt16		holdMotherRecord;
-   UInt16      origIndiRecN = CurrentIndiRecN;
-   TablePtr 	table;
+	Int16		row;
+	UInt16		holdMotherRecord;
+	UInt16      origIndiRecN = CurrentIndiRecN;
+	TablePtr 	table;
 	
-   table = GetObjectPtr (AncestryAncestryTable);
+	table = GetObjectPtr (AncestryAncestryTable);
 
 	ShowObject (AncestryBackButton, (Boolean) (HistPos > 0)); // hide/show Back Button
 
@@ -1413,15 +1413,15 @@ static void AncestryLoadTable (void)
 	for (row = 0; row < 9; row++) {
 		TblSetItemStyle (table, row, 0, customTableItem);
 		TblSetRowUsable (table, row, true);
-   	TblMarkRowInvalid (table, row);
-   	TblSetRowData (table, row, NO_REC);  // initialize
+   		TblMarkRowInvalid (table, row);
+   		TblSetRowData (table, row, NO_REC);  // initialize
 		TblSetRowHeight (table, row, ANCST_FONT_SZ);
  		TblSetRowSelectable (table, row, true);
 		}
 
 	// initialize columns
 	TblSetColumnUsable (table, 0, true);
-   TblSetCustomDrawProcedure (table, 0, AncestryDrawRecord);
+	TblSetCustomDrawProcedure (table, 0, AncestryDrawRecord);
 
 	// root individual
 	TblSetRowData (table, 4, CurrentIndiRecN);
