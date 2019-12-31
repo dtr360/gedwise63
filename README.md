@@ -7,7 +7,7 @@ This repository contains source file for the GedWise 6.3 application written in 
 
 
 
-### GedWise Running on a Palm Pilot - Individual Screens
+### GedWise Running on a Palm Pilot - Separate Screen Shots
 
 ![GedWise on Palm Pilot Screen 01](images/PP-1.gif)
 ![GedWise on Palm Pilot Screen 02](images/PP-2.gif)
